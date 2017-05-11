@@ -67,7 +67,9 @@ handle_call({save_update,M,Model}, _From, State) ->
       NewRec=recop_util:set(M,Rec,PL),
       ok = mnesia:dirty_write(NewRec)
   end,
-  {reply, ok, State}.
+  {reply, ok, State};
+handle_call(_, _From, State)->
+{reply, ok, State}.
 
 handle_cast(_Request, State) ->
   {noreply, State}.

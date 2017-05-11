@@ -45,7 +45,7 @@ get_model()->
   #{openid => <<"openid">>
     ,access_token => <<"access_token">>
     ,refresh_token => <<"refresh_token">>
-    ,timestamp => <<"timestamp">>
+    ,timestamp => {<<"timestamp">>,integer}
     ,role => <<"role">>
     ,nickname => <<"nickname">>
     ,headimgurl => <<"headimgurl">>
