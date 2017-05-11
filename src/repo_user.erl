@@ -12,7 +12,7 @@
 -record(user_info,{openid,access_token,refresh_token,timestamp,role= <<"empty">>,nickname,headimgurl,sex,info=[]}).
 -export_records([user_info]).
 %% API
--export([init/1, init/0, get_model/0, fields/0]).
+-export([init/1, init/0, get_model/0, fields/0, get_pk_name/0]).
 
 init()->
   {ok, Dir} = application:get_env(mnesia, dir),
@@ -36,6 +36,10 @@ init(M) ->
     ]
   ),
   ok.
+
+get_pk_name()->
+  openid.
+
 
 get_model()->
   #{openid => <<"openid">>
